@@ -195,8 +195,8 @@ class hand_tracking(OpenRTM_aist.DataFlowComponentBase):
     def onExecute(self, ec_id):
         if hand_tracking.count == 0:
             hand_tracking.cap = cv2.VideoCapture(0)
-            hand_tracking.cap.set(cv2.CAP_PROP_FRAME_WIDTH, 600) # カメラ画像の横幅を1280に設定
-            hand_tracking.cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 600) # カメラ画像の縦幅を720に設定
+            hand_tracking.cap.set(cv2.CAP_PROP_FRAME_WIDTH, 600)
+            hand_tracking.cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 600)
             hand_tracking.mpHands = mp.solutions.hands
             hand_tracking.hands = hand_tracking.mpHands.Hands()
             hand_tracking.mpDraw = mp.solutions.drawing_utils

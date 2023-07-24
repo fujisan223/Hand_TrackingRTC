@@ -1,0 +1,10 @@
+^C:\USERS\HISAH\WORKSPACE\HAND_TRACKING_CHECK\SRC\CMAKELISTS.TXT
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/hisah/workspace/hand_tracking_check -BC:/Users/hisah/workspace/hand_tracking_check/build --check-stamp-file C:/Users/hisah/workspace/hand_tracking_check/build/src/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

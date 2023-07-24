@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\hisah\workspace\hand_tracking_check\build\CMakeFiles\f6609b13473a684fab125bf53a1e532f\INSTALL_force.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{790D74F9-8D04-3B23-9E9B-3287F147D863}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\hisah\workspace\hand_tracking_check\build\CMakeFiles\4a43ad20a30e563651873c089b1faaad\hand_tracking_check_uninstall.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\hisah\workspace\hand_tracking_check\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="C:\Users\hisah\workspace\hand_tracking_check\build\CMakeFiles\hand_tracking_check_uninstall" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{790D74F9-8D04-3B23-9E9B-3287F147D863}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

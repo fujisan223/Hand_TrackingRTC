@@ -1,6 +1,8 @@
 # Hand_TrackingRTC
 ## 概要
-mediapipeが提供しているhand_trackingのライブラリをRTCとして実装したものです．
+* mediapipeが提供しているhand_trackingのライブラリをRTCとして実装したものです．
+* 参考URL
+  * https://www.section.io/engineering-education/creating-a-hand-tracking-module/
 
 ## コンポーネント内容
 1. hand_tracking

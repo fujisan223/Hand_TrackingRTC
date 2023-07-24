@@ -165,7 +165,7 @@ class hand_tracking(OpenRTM_aist.DataFlowComponentBase):
     #
     #
     def onActivated(self, ec_id):
-        self._d_hand_position.data = [-0.140, -0.060, 0.180]
+        self._d_hand_position.data = [-0.60, -0.140, 0.180]
         self._d_grip.data = 0
     
         return RTC.RTC_OK
@@ -226,22 +226,22 @@ class hand_tracking(OpenRTM_aist.DataFlowComponentBase):
                         hand_tracking.list2 = [hand_tracking.cx, hand_tracking.cy, hand_tracking.cz]
                 
                 #trackingに使う手の座標を計算，表示
-                hand_tracking.hand_x = int((hand_tracking.list1[0] + hand_tracking.list2[0])/2)
-                hand_tracking.hand_y = int((hand_tracking.list1[1] + hand_tracking.list2[1])/2)
+                hand_tracking.hand_x = int((hand_tracking.list1[1] + hand_tracking.list2[1])/2)
+                hand_tracking.hand_y = int((hand_tracking.list1[0] + hand_tracking.list2[0])/2)
                 hand_tracking.hand_z = int(((hand_tracking.list1[2] + hand_tracking.list2[2])/2) + 260)
 
                 #cobotの可動範囲に合わせてxy座標を変換し，cobotに送るxy座標を計算
-                hand_tracking.hand_xout = int(((hand_tracking.hand_x - (hand_tracking.w/2)) * 0.25) -175)/1000
-                hand_tracking.hand_yout = int(((hand_tracking.hand_y - (hand_tracking.h/2)) * 0.6) - 20)/1000
-                if hand_tracking.hand_z >= 0:
+                hand_tracking.hand_xout = int(((hand_tracking.hand_x - (hand_tracking.h/2)) * 0.25) - 175)/1000
+                hand_tracking.hand_yout = int(((hand_tracking.hand_y - (hand_tracking.w/2)) * 0.60) - 20)/1000
+                if hand_tracking.hand_z >= 80:
                     hand_tracking.hand_zout = int(hand_tracking.hand_z) / 1000
                 else :
-                    hand_tracking.hand_zout = 0
+                    hand_tracking.hand_zout = 80 / 1000
 
                 print("send_data")
                 print("x:", hand_tracking.hand_xout * 1000, "y:", hand_tracking.hand_yout * 1000, "z:", hand_tracking.hand_zout * 1000)
-                cv2.circle(image, (hand_tracking.hand_x, hand_tracking.hand_y), 15, (255, 0, 255), cv2.FILLED)
-                self._d_hand_position.data = [hand_tracking.hand_xout, hand_tracking.hand_yout, hand_tracking.hand_zout]
+                cv2.circle(image, (hand_tracking.hand_y, hand_tracking.hand_x), 15, (255, 0, 255), cv2.FILLED)
+                self._d_hand_position.data = [hand_tracking.hand_xout* 1000, hand_tracking.hand_yout* 1000, hand_tracking.hand_zout* 1000]
 
                 #掴み判定(中指の根元～先の距離で判定しているので中指を曲げれば反応してしまう)
                 hand_tracking.grab_judge = hand_tracking.grab1 - hand_tracking.grab2
@@ -252,7 +252,7 @@ class hand_tracking(OpenRTM_aist.DataFlowComponentBase):
                     self._d_grip.data = 1
                 else:
                     self._d_grip.data = 0
-            
+                print(self._d_hand_position)
                 self._hand_positionOut.write()
                 print("position sent")
                 self._gripOut.write()
